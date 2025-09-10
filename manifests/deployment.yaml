@@ -1,0 +1,23 @@
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: sample-node
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-node
+  template:
+    metadata:
+      labels:
+        app: sample-node
+    spec:
+      containers:
+      - name: sample-node
+        image: localhost:5000/sample-node:latest
+        ports:
+        - containerPort: 3000 
+      
